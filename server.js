@@ -4,12 +4,16 @@ import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import v1UserRoutes from "./routes/v1/userRoutes.js";
 import { errorHandler } from "./middleware/errorMiddleware.js";
+import { apiKeyHandler } from "./middleware/apiKeyMiddleware.js";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 connectDB();
+
+// API KEY handler
+app.use(apiKeyHandler);
 
 // Routes
 app.use("/api/users", userRoutes);
