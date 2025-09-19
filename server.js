@@ -13,7 +13,7 @@ app.use(express.json());
 connectDB();
 
 // API KEY handler
-app.use(apiKeyHandler);
+// app.use(apiKeyHandler);
 
 // Routes
 app.use("/api/users", userRoutes);
